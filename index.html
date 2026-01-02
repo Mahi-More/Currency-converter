@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Currency Converter</title>
+    <link rel="stylesheet" href="./currency converter.css">
+</head>
+
+<body>
+    <div class="box1">
+        <form action="">
+            <h2>Currency Converter</h2>
+            <input type="number" id="amount" placeholder="Enter Amount" class="a"><br><br>
+            <!-- <input list="conv1" class="b" name="usd"> -->
+            <select id="conv1" class="b">
+                <option value="USD">USD</option>
+                <option value="INR">INR</option>
+                <option value="EUR">EUR</option>
+                <option value="JPY">JPY</option>
+            </select><BR></BR>
+            <!-- <input list="conv2" class="c" name="usd"> -->
+            <select id="conv2" class="c">
+                
+                <option value="INR" >INR</option>
+                <option value="USD">USD</option>
+                <option value="EUR">EUR</option>
+                <option value="JPY">JPY</option>
+            </select><BR></BR>
+
+            <button type="button" onclick="convert()">Convert</button>
+            <div id="result"></div>
+        </form>
+    </div>
+    <script>
+        async function convert(){
+            const amount = document.getElementById('amount').value;
+            const from = document.getElementById('conv1').value;
+            const to = document.getElementById('conv2').value;
+
+            if(!amount || amount<=0){
+                alert('Enter a valid amount');
+            }
+            try{
+                console.log(to);
+                const res = await fetch(`https://api.frankfurter.app/latest?from=${from}&to=${to}
+`);
+                const data = await res.json();
+                const rate = data.rates[to];
+                const result = (amount * rate);
+                console.log(result);
+                document.getElementById('result').innerText=`${amount} ${from}=${result} ${to}`;
+                
+            }
+            catch(error){
+                console.error(error);
+                alert("error fetching exchange rate.");
+                
+            }
+        }
+    </script>
+</body>
+
+</html>
+
+<!-- https://api.exchangerate-api.com/v4/latest/${from} -->

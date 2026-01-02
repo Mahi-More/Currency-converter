@@ -1,0 +1,47 @@
+body {
+    background-color: black;
+}
+
+.box1 {
+    width: 30vw;
+    height: 50vh;
+    background-color: gray;
+    border-radius: 10px;
+    text-align: center;
+    margin-left: 70vh;
+    margin-top: 25vh;
+    padding-top: 10px;
+    padding-bottom: 40px;
+    font-style: italic;
+}
+
+.box1 button {
+    background-color: green;
+    border-radius: 5px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    padding-left: 180px;
+    padding-right: 180px;
+    border: 2px solid green;
+}
+
+.a {
+    border-radius: 5px;
+    width: 27vw;
+    height: 6vh;
+    border: 2px solid white;
+}
+
+.b {
+    border-radius: 5px;
+    width: 27vw;
+    height: 6vh;
+    border: 2px solid white;
+}
+
+.c {
+    border-radius: 5px;
+    width: 27vw;
+    height: 6vh;
+    border: 2px solid white;
+}
